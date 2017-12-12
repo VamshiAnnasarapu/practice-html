@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset= "utf-8">
+	    <title>Annasarapu Lab-Week 2</title>
+	    <script type="text/javascript">
+	        //created by Annasarapu 
+		    //id: 700658129
+		    "use strict";
+		  
+		    //variables
+			var input1, input2;  //not suggested.
+			var number1 = 0;
+			var number2 = 0;
+			document.writeln("<h1>Annasarapu Fun With Numbers</h1>");
+			//get the first input from the user
+			input1 = window.prompt("please enter an integer");
+			
+			//validate the input
+			try {
+			     if(number1 = parseInt(input1)){
+				     //input valid
+					 //get the second input
+					 input2 = window.prompt("please enter another integer");
+					 //validate :
+					 if(number2 = parseInt(input2)){
+					   //input2 is also valid.
+					   //call the function
+					   findTheDifference(number1,number2);
+					 } else {
+					   //input2 is not valid.
+					   if(input2 ==""){throw("not Input Entered")}
+					   else if(isNaN(input2)){ throw("Input is not an number")}
+					   else{throw("Input is not an integer")}
+					 }//end inner if/else
+				 } else{
+				     //input not valid.
+					 if(input1 ==""){throw("not Input Entered")}
+					 else if(isNaN(input1)){ throw("Input is not an number")}
+					 else{throw("Input is not an integer")}
+					 
+				 }// end outer if/else
+			} catch (err){
+			    //display the error to the user
+				document.writeln("<p>Invalid Input: " + err + "</p>" );
+			}//end try/catch
+		  
+		      //function to find difference and display big/small number1
+			  
+			  function findTheDifference( firstNumber, SecondNumber){
+			   //this function finds the bigger/smaller numbers and the difference.
+			   
+			   //variables
+			   var smallerNumber =0;
+			   var biggerNumber =0;
+			   
+			   //compare using switch 
+			   
+			   switch (true){
+			        case (firstNumber > SecondNumber):
+					     smallerNumber = SecondNumber;
+						 biggerNumber = firstNumber;
+						 
+						 //diplay the differernce:
+						 document.write ("<p>first Number is greater than the second Number by:"+ (biggerNumber-smallerNumber) + "</p>");
+					    break;
+				    case (firstNumber < SecondNumber):
+					     smallerNumber = firstNumber;
+						 biggerNumber = SecondNumber;
+						 
+						 //diplay the differernce:
+						 document.write ("<p>Second Number is greater than the First Number by:"+ (biggerNumber-smallerNumber) + "</p>");
+					    break;
+				    default:
+                        smallerNumber = SecondNumber;
+						 biggerNumber = firstNumber;
+						 
+						 //diplay the differernce:
+						 document.write ("<p> first Number is exactly equal to the second Number </p>");
+						break;
+						
+			   }//end switch.
+			    
+				//call the function for the rsest of the math:
+				doTheMath(smallerNumber , biggerNumber);
+				
+			  }//end function findTheDifference
+	          
+			  function doTheMath(smallNumber , bigNumber){
+			  
+			  //variables
+			  var total=0;
+			  //1.Sum:
+			  document.write ("<p> Sum of     " +smallNumber + " and " + bigNumber + " is " + (smallNumber + bigNumber)+"</p>");
+			  //2. product:
+			  document.write ("<p> Product of    " +smallNumber + " and " + bigNumber + " is " + (smallNumber * bigNumber)+"</p>");
+			  //3. squares:
+			  document.write ("<p> Squares of   " +smallNumber + " and " + bigNumber + " are " + Math.pow(smallNumber ,2) + " and " +Math.pow(bigNumber ,2)+"</p>");
+			  //4. Random Numbers:
+			  document.write ("<p> A random Number in the range  of  " +smallNumber + " and " + bigNumber + " is " + Math.floor( smallNumber+(Math.random() *(bigNumber - smallNumber)))+"</p>");
+			  //5. sum of range:
+			  for (var i =smallNumber; i <=bigNumber; ++i){
+	                          total +=i;
+                                                          }
+			      document.write ("<p> Sum of Numbers in the range  " +smallNumber + " and " + bigNumber + " is " + total +"</p>");
+							  
+			  
+			  
+			  
+			  }//end function doTheMath
+	    </script>
+	</head>
+	<body>
+    </body>
+</html>
